@@ -1,0 +1,19 @@
+def is_isomorphic(s, t):
+    if len(s)!=len(t):
+        return False
+    s_to_t = {}
+    t_to_s = {
+    }
+    for c1, c2 in zip(s,t):
+        if c1 in s_to_t and s_to_t[c1] !=c2:
+            return False
+        if c2 in t_to_s and t_to_s[c2] != c1:
+            return False
+        s_to_t[c1] = c2
+        t_to_s[c2] = c1
+    return True
+
+
+
+
+print(is_isomorphic("egg","add"))
